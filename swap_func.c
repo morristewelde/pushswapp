@@ -6,7 +6,7 @@
 /*   By: mtewelde <mtewelde@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 15:06:09 by mtewelde          #+#    #+#             */
-/*   Updated: 2024/02/24 14:09:01 by mtewelde         ###   ########.fr       */
+/*   Updated: 2024/03/01 17:42:39 by mtewelde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,6 @@ void	rr(t_stack_node **stack_a, t_stack_node **stack_b)
 	rotate(stack_b);
 	write(1, "rr\n", 3);
 }
-
 
 static void reverse_rotate(t_stack_node **stack)
 {
