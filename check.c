@@ -6,7 +6,7 @@
 /*   By: mtewelde <mtewelde@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 13:17:46 by mtewelde          #+#    #+#             */
-/*   Updated: 2024/03/01 17:49:21 by mtewelde         ###   ########.fr       */
+/*   Updated: 2024/07/08 14:26:23 by mtewelde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	ft_stack_len(t_stack_node *stack)
 	return (len);
 }
 
-static t_stack_node *ft_find_largest(t_stack_node *stack)
+t_stack_node	*ft_find_largest(t_stack_node *stack)
 {
 	int				largest;
 	t_stack_node	*largest_node;
@@ -50,7 +50,7 @@ static t_stack_node *ft_find_largest(t_stack_node *stack)
 	largest = INT_MIN;
 	while (stack)
 	{
-		if(stack->value > largest)
+		if (stack->value > largest)
 		{
 			largest = stack->value;
 			largest_node = stack;
@@ -59,4 +59,3 @@ static t_stack_node *ft_find_largest(t_stack_node *stack)
 	}
 	return (largest_node);
 }
-

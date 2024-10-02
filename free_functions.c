@@ -6,7 +6,7 @@
 /*   By: mtewelde <mtewelde@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 20:00:58 by mtewelde          #+#    #+#             */
-/*   Updated: 2024/02/16 19:17:07 by mtewelde         ###   ########.fr       */
+/*   Updated: 2024/07/08 14:10:48 by mtewelde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,25 +29,25 @@ void	free_stack(t_stack_node **stack)
 	*stack = NULL;
 }
 
-// void	free_string(char **av)
-// {
-// 	int	i;
-
-// 	i = 0;
-// 	if (av == NULL|| *av == NULL)
-// 		return ;
-// 	while (av[i])
-// 	{
-// 		free(av[i++]);
-// 	}
-// }
+/*void	free_string(char **av)
+{
+	int	i;
+	
+	i = 0;
+	if (av == NULL|| *av == NULL)
+		return ;
+	while (av[i])
+	{
+		free(av[i++]);
+	}
+}*/
 
 void	free_string(char **av)
 {
 	int	i;
 
 	i = -1;
-	if (av == NULL|| *av == NULL)
+	if (av == NULL || *av == NULL)
 		return ;
 	while (av[i])
 		free(av[i++]);

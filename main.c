@@ -6,11 +6,9 @@
 /*   By: mtewelde <mtewelde@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 17:28:31 by mtewelde          #+#    #+#             */
-/*   Updated: 2024/02/24 14:01:00 by mtewelde         ###   ########.fr       */
+/*   Updated: 2024/07/08 14:10:46 by mtewelde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-//morrisT
 
 #include "push_swap.h"
 #include <stdio.h>
@@ -38,26 +36,15 @@ int	main(int ac, char **av)
 		av = ft_split(av[1], ' ');
 		ac2 = true;
 	}
-
 	initiate_stack(&a, av + 1, ac2);
-
 	if (!check_sort(a))
 	{
 		if (ft_stack_len(a) == 2)
-		{
 			sa(&a);
-			print_stack(a);
-		} 
 		else if (ft_stack_len(a) == 3)
-		{
 			tiny_sort(&a);
-			print_stack(a);
-		}
-	} 
-	else if (check_sort(a))
-	{
-		printf("is already sorted\n");
 	}
+	else if (check_sort(a))
+		printf("is already sorted\n");
 	free_stack(&a);
 }
-

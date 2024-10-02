@@ -6,7 +6,7 @@
 /*   By: mtewelde <mtewelde@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 16:44:10 by mtewelde          #+#    #+#             */
-/*   Updated: 2024/02/16 18:54:54 by mtewelde         ###   ########.fr       */
+/*   Updated: 2024/07/08 14:32:34 by mtewelde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,15 +66,6 @@ int	error_repetition(t_stack_node *a, int nb)
 		a = a->next;
 	}
 	return (0);
-}
-
-t_stack_node	*ft_final_node(t_stack_node *stack)
-{
-	if (stack == NULL)
-		return (NULL);
-	while (stack->next)
-		stack = stack->next;
-	return (stack);
 }
 
 void	append_stack(t_stack_node **stack, int nb)
