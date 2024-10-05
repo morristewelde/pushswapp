@@ -5,46 +5,110 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mtewelde <mtewelde@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/01 17:28:31 by mtewelde          #+#    #+#             */
-/*   Updated: 2024/07/08 14:10:46 by mtewelde         ###   ########.fr       */
+/*   Created: 2024/10/05 12:54:32 by mtewelde          #+#    #+#             */
+/*   Updated: 2024/10/05 17:56:38 by mtewelde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+// #include "../push_swap.h"
 #include "push_swap.h"
-#include <stdio.h>
 
-void	print_stack(t_stack_node *stack)
+void	ft_error(void)
 {
-	while (stack)
+	write(2, "Error\n", 6);
+	exit(1);
+}
+
+int	ft_atol(char *str)
+{
+	long	res;
+	int		sign;
+
+	res = 0;
+	sign = 1;
+	while (*str == 32 || (*str >= 9 && *str <= 13))
+		str++;
+	if (*str == '-')
+		sign = -1;
+	if (*str == '-' || *str == '+')
+		str++;
+	while (*str)
 	{
-		printf("%d\n", stack->value);
-		stack = stack->next;
+		if (!(*str >= 48 && *str <= 57))
+			ft_error();
+		res = res * 10 + (*str - 48);
+		str++;
+	}
+	if ((res * sign) > 2147483647 || (res * sign) < -2147483648)
+		ft_error();
+	return (res * sign);
+}
+
+t_stack_node	*ft_last_node(t_stack_node *a)
+{
+	if (!a)
+		return (NULL);
+	while (a->next)
+		a = a->next;
+	return (a);
+}
+
+void	ft_append_stack(t_stack_node **a, t_stack_node *b)
+{
+	if (!a)
+		return ;
+	if (!*a)
+		*a = b;
+	else
+		(ft_last_node(*a))->next = b;
+}
+
+t_stack_node	*ft_create_singlenode(int nb)
+{
+	t_stack_node	*res;
+	res = malloc(sizeof (t_stack_node));
+	if (!res)
+		ft_error();
+	res->value = nb;
+	res->next = NULL;
+	return (res);
+}
+
+t_stack_node	*ft_create_stack(int ac, char **av)
+{
+	int				i;
+	int				nb;
+	t_stack_node	*new;
+	t_stack_node	*temp;
+
+	i = 1;
+	new = NULL;
+	while (i < ac)
+	{
+		nb = ft_atol(av[i]);
+		temp = ft_create_singlenode(nb);
+		ft_append_stack(&new, temp);
+		i++;
+	}
+	return (new);
+}
+
+void	ft_print_stack(t_stack_node *a)
+{
+	if(!a)
+		exit(1);
+	while (a)
+	{
+		printf("%d\n", a->value);
+		a = a->next;
 	}
 }
 
-int	main(int ac, char **av)
+
+int	main(int argc, char **argv)
 {
 	t_stack_node	*a;
-	bool			ac2;
 
-	a = NULL;
-	ac2 = false;
-	if (ac == 1 || (ac == 2 && !av[1][0]))
-		return (1);
-	else if (ac == 2)
-	{
-		av = ft_split(av[1], ' ');
-		ac2 = true;
-	}
-	initiate_stack(&a, av + 1, ac2);
-	if (!check_sort(a))
-	{
-		if (ft_stack_len(a) == 2)
-			sa(&a);
-		else if (ft_stack_len(a) == 3)
-			tiny_sort(&a);
-	}
-	else if (check_sort(a))
-		printf("is already sorted\n");
-	free_stack(&a);
+	a = ft_create_stack(argc, argv);
+	ft_print_stack(a);
 }
