@@ -5,49 +5,56 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mtewelde <mtewelde@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/05 16:51:14 by mtewelde          #+#    #+#             */
-/*   Updated: 2024/10/08 23:16:06 by mtewelde         ###   ########.fr       */
+/*   Created: 2024/10/13 22:37:10 by mtewelde          #+#    #+#             */
+/*   Updated: 2024/10/13 23:44:56 by mtewelde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include <stdio.h>
-# include <stdlib.h>
 # include <unistd.h>
+# include <stdlib.h>
 
-typedef struct s_stack_node
+typedef struct s_list
 {
-	int					value;
-	int					index;
-	struct s_stack_node	*next;
-	struct s_stack_node	*prev;
-}	t_stack_node;
+	int				nb;
+	int				rank;
+	struct s_list	*next;
+}	t_list;
 
-char			**ft_split(char *av, char sep);
 
-//create the stack
-t_stack_node	*ft_last_node(t_stack_node *a);
-t_stack_node	*ft_create_singlenode(int nb);
-t_stack_node	*ft_create_stack(int ac, char **av);
-t_stack_node	*ft_create_stack_av2(char *av2);
-void			ft_append_stack(t_stack_node **a, t_stack_node *b);
+void	show_error(void);
+int		ft_atol(char *str);
+t_list	*lst_new(char *n);
+void	ft_lstadd_front(t_list **lst, t_list *new);
+void	ft_lstadd_back(t_list **lst, t_list *new);
+int		ft_lstsize(t_list *lst);
+t_list	*ft_lstlast(t_list *lst);
 
-//checking the stack order and repetition
-int				ft_check_repetition(t_stack_node *a);
-int				ft_check_order(t_stack_node *a);
+int		valid_args(char **av);
+t_list	**initialize(char **av);
+char	**ft_split(char *s, char c);
+void	set_rank(t_list **lst_a);
+t_list	*get_max(t_list **lst);
 
-//utils for stack related sub-operation
-int				ft_stack_len(t_stack_node *a);
 
-//swap functions
-void	sa(t_stack_node **a, int i);
+void	sa(t_list **lst);
+void	sb(t_list **lst);
+void	ss(t_list **lst_a, t_list **lst_b);
+void	pa(t_list **lst_a, t_list **lst_b);
+void	pb(t_list **lst_a, t_list **lst_b);
+void	ra(t_list **lst);
+void	rb(t_list **lst);
+void	rr(t_list **lst_a, t_list **lst_b);
+void	rra(t_list **lst);
+void	rrb(t_list **lst);
+void	rrr(t_list **lst_a, t_list **lst_b);
 
-//freeing and error functions
-void			ft_error(void);
-void			ft_free_stack(t_stack_node **a);
-
-int				ft_atol(char *str);
+int		is_sorted(t_list **lst);
+void	sort_three(t_list **lst);
+void	sort_five(t_list **lst_a, t_list **lst_b);
+void	sort_x(t_list **lst_a, t_list **lst_b);
 
 #endif

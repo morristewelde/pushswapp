@@ -5,46 +5,36 @@
 #                                                     +:+ +:+         +:+      #
 #    By: mtewelde <mtewelde@student.42lehavre.fr    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/10/08 20:22:05 by mtewelde          #+#    #+#              #
-#    Updated: 2024/10/08 20:27:13 by mtewelde         ###   ########.fr        #
+#    Created: 2024/10/13 22:39:33 by mtewelde          #+#    #+#              #
+#    Updated: 2024/10/13 23:46:20 by mtewelde         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: yogun <yogun@student.42heilbronn.de>       +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/07/23 13:48:18 by yogun             #+#    #+#              #
-#    Updated: 2022/09/01 20:23:46 by yogun            ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
 
-NAME = push_swap
-CC = gcc
-RM = rm -f
-FLAGS = -Wall -Wextra -Werror
+SRC			=	push_swap.c src/is_sorted.c src/sort_five.c src/sort_x.c\
+				src/push.c src/rotate.c src/rrotate.c src/swap.c src/initialize.c\
+				src/valid_args.c src/lst_utils.c src/ft_atol.c src/ft_split.c
+				
 
-SRC = main.c, ft_split.c
+CFLAGS		=	-Wall -Werror -Wextra
 
-OBJ = ${SRC:.c=.o}
+OBJS		=	${SRC:.c=.o}
 
-.c.o:
-	${CC} -c $< -o ${<:.c=.o}
+NAME		=	push_swap
 
-${NAME}: ${OBJ}
-	${CC} ${FLAGS} ${OBJ} -o ${NAME}
+CC			=	cc
 
-all: ${NAME} 
+RM			=	rm -rf
 
-clean:
-	${RM} ${OBJ}
+all : ${NAME}
 
-fclean: clean
+${NAME} : ${OBJS}
+	${CC} ${CFLAGS} ${OBJS} -o ${NAME}
+
+clean :
+	${RM} ${OBJS}
+
+fclean : clean
 	${RM} ${NAME}
 
-re: clean all
-
-.PHONY: all clean fclean re
+re : fclean all
