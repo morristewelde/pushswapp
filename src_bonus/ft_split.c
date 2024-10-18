@@ -6,11 +6,11 @@
 /*   By: mtewelde <mtewelde@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 22:43:21 by mtewelde          #+#    #+#             */
-/*   Updated: 2024/10/15 22:05:27 by mtewelde         ###   ########.fr       */
+/*   Updated: 2024/10/16 21:10:56 by mtewelde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "bonus.h"
 
 int	count_str(char *str, char sep)
 {

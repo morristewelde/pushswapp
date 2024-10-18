@@ -6,11 +6,11 @@
 /*   By: mtewelde <mtewelde@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 23:18:52 by mtewelde          #+#    #+#             */
-/*   Updated: 2024/10/15 22:06:18 by mtewelde         ###   ########.fr       */
+/*   Updated: 2024/10/16 21:11:10 by mtewelde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "bonus.h"
 
 // gives the real index (starting from 0) 
 // meaning it will return the index of the minimum value from the stack 

@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   bonus.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mtewelde <mtewelde@student.42lehavre.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/05 16:51:14 by mtewelde          #+#    #+#             */
-/*   Updated: 2024/10/16 21:06:14 by mtewelde         ###   ########.fr       */
+/*   Created: 2024/10/16 22:04:36 by mtewelde          #+#    #+#             */
+/*   Updated: 2024/10/16 22:05:30 by mtewelde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#ifndef BONUS_H
+# define BONUS_H
 
 # include <unistd.h>
 # include <stdlib.h>
-# include "gnl/get_next_line.h"
+# include "../gnl/get_next_line.h"
 
 typedef struct s_stack
 {

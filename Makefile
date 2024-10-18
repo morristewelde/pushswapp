@@ -5,36 +5,45 @@
 #                                                     +:+ +:+         +:+      #
 #    By: mtewelde <mtewelde@student.42lehavre.fr    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/10/13 22:39:33 by mtewelde          #+#    #+#              #
-#    Updated: 2024/10/13 23:46:20 by mtewelde         ###   ########.fr        #
+#    Created: 2024/10/14 23:48:08 by mtewelde          #+#    #+#              #
+#    Updated: 2024/10/16 21:07:41 by mtewelde         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+NAME        = push_swap
+NAME_BONUS  = checker
 
-SRC			=	push_swap.c src/is_sorted.c src/sort_five.c src/sort_x.c\
-				src/push.c src/rotate.c src/rrotate.c src/swap.c src/initialize.c\
-				src/valid_args.c src/lst_utils.c src/ft_atol.c src/ft_split.c
-				
+SRC         = main.c src/sort_five.c src/sort_big.c\
+              src/3push.c src/2rotate.c src/4reverse_rotate.c src/1swap.c src/ft_create_stack.c\
+              src/check_av.c src/utils_stack.c src/utils.c src/ft_split.c
 
-CFLAGS		=	-Wall -Werror -Wextra
+SRC_BONUS   = src_bonus/bonus.c src_bonus/sort_five.c src_bonus/sort_big.c\
+              src_bonus/3push.c src_bonus/2rotate.c src_bonus/4reverse_rotate.c src_bonus/1swap.c src_bonus/ft_create_stack.c\
+              src_bonus/check_av.c src_bonus/utils_stack.c src_bonus/utils.c src_bonus/ft_split.c\
+              gnl/get_next_line.c gnl/get_next_line_utils.c
 
-OBJS		=	${SRC:.c=.o}
+CFLAGS      = -Wall -Werror -Wextra
 
-NAME		=	push_swap
+OBJS        = ${SRC:.c=.o}
+OBJS_BONUS  = ${SRC_BONUS:.c=.o}
 
-CC			=	cc
+CC          = cc
+RM          = rm -rf
 
-RM			=	rm -rf
+all: ${NAME}
 
-all : ${NAME}
+bonus: ${NAME_BONUS}
 
-${NAME} : ${OBJS}
+${NAME}: ${OBJS}
 	${CC} ${CFLAGS} ${OBJS} -o ${NAME}
 
-clean :
-	${RM} ${OBJS}
+${NAME_BONUS}: ${OBJS_BONUS}
+	${CC} ${CFLAGS} ${OBJS_BONUS} -o ${NAME_BONUS}
 
-fclean : clean
-	${RM} ${NAME}
+clean:
+	${RM} ${OBJS} ${OBJS_BONUS}
 
-re : fclean all
+fclean: clean
+	${RM} ${NAME} ${NAME_BONUS}
+
+re: fclean all
